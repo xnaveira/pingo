@@ -1,0 +1,9 @@
+{
+  "configurations": [
+    {
+      "name": "Debug cmd",
+      "mode": "debug",
+      "cwd": "${workspaceroot}/cmd"
+    }
+  ]
+}
