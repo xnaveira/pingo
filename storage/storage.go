@@ -8,7 +8,6 @@ import (
 )
 
 //Provisional storage module, not concurrently safe and in memory only
-
 var matches model.Matches = []model.Match{}
 
 //RepoMatchGetAll all the Matches

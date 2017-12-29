@@ -19,8 +19,8 @@ func init() {
 	testID = uuid.NewV4()
 	testGame := []model.Result{model.Result{A: 0, B: 0}, model.Result{A: 0, B: 1}, model.Result{A: 0, B: 2}}
 	testGame2 := []model.Result{model.Result{A: 1, B: 1}, model.Result{A: 0, B: 1}, model.Result{A: 0, B: 2}}
-	testMatch = model.Match{ID: testID, PlayerA: "Petter", PlayerB: "Xavier", Games: testGame}
-	testMatch2 = model.Match{ID: testID, PlayerA: "Petter", PlayerB: "Xavier", Games: testGame2}
+	testMatch = model.Match{ID: testID, PlayerA: "Petter", PlayerB: "Xavier", Games: []model.Game{testGame}}
+	testMatch2 = model.Match{ID: testID, PlayerA: "Petter", PlayerB: "Xavier", Games: []model.Game{testGame2}}
 	testMatches = append(testMatches, testMatch)
 }
 

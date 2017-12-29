@@ -56,8 +56,8 @@ func TestCreateMatch(t *testing.T) {
 
 	var testMatches = []testMatch{
 		testMatch{
-			`{"playera":"Petter","playerb":"Xavier","games":[{"a":0,"b":0}]}`,
-			`"playera":"Petter","playerb":"Xavier","games":[{"a":0,"b":0}]}`,
+			`{"playera":"Petter","playerb":"Xavier","games":[[{"a":0,"b":0}]]}`,
+			`"playera":"Petter","playerb":"Xavier","games":[[{"a":0,"b":0}]]}`,
 			http.StatusCreated},
 		testMatch{
 			`{"playea":"Petter","games":"games"}`,
@@ -121,14 +121,14 @@ func TestMatchModify(t *testing.T) {
 		testMatchModifyData{
 			"Should modify it",
 			createdID.String(),
-			fmt.Sprintf(`{"id":"%s","playera":"Petter","playerb":"Xavier","games":[{"a":1,"b":0},{"a":0,"b":0}]}`, createdID.String()),
-			fmt.Sprintf(`{"id":"%s","playera":"Petter","playerb":"Xavier","games":[{"a":1,"b":0},{"a":0,"b":0}]}`, createdID.String()),
+			fmt.Sprintf(`{"id":"%s","playera":"Petter","playerb":"Xavier","games":[[{"a":1,"b":0},{"a":0,"b":0}]]}`, createdID.String()),
+			fmt.Sprintf(`{"id":"%s","playera":"Petter","playerb":"Xavier","games":[[{"a":1,"b":0},{"a":0,"b":0}]]}`, createdID.String()),
 			201,
 		},
 		testMatchModifyData{
 			"Shouldn't modify it",
 			newUUID.String(),
-			fmt.Sprintf(`{"id":"%s","playera":"Petter","playerb":"Xavier","games":[{"a":1,"b":0},{"a":0,"b":0}]}`, newUUID.String()),
+			fmt.Sprintf(`{"id":"%s","playera":"Petter","playerb":"Xavier","games":[[{"a":1,"b":0},{"a":0,"b":0}]]}`, newUUID.String()),
 			`{"id":"00000000-0000-0000-0000-000000000000","playera":"","playerb":"","games":null}`, //model.Match{}
 			500,
 		},
